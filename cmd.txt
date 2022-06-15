@@ -1,32 +1,35 @@
- vi pod.yaml
-   81  vi svc.yaml
-   82  vi pod.yaml
-   83  vi man-schedule.yaml
-   84  kubectl get nodes --show-labels
-   85  kubectl get nodes
-   86  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
-   87  kubectl get nodes --show-labels
-   88  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen, memory=16
-   89  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen, memory=best
-   90* kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
-   91  kubectl get nodes --show-labels
-   92  kubectl get nodes --show-labels | grep cpu=
-   93  kubectl get nodes --show-labels | grep cpu=ryzen
-   94  cp pod.yaml node-sel.yaml
-   95  vi node-sel.yaml
-   96  kubectl create -f node-sel.yaml
-   97  vi pod.yaml
-   98  vi node-sel.yaml
-   99  kubectl create -f node-sel.yaml
-  100  kubectl get pod
-  101  kubectl describe pod pod-nodesel
-  102  kubectl get pod
-  103  kubectl get nodes
-  104  kubectl delete -f node-sel.yaml
-  105  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu-
-  106  kubectl create -f node-sel.yaml
-  107  kubectl get pod
-  108  kubectl describe pod pod-nodesel
-  109  kubectl get pod
-  110  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
-  111  kubectl get pod
+    1  cd myapp/CT-new/
+    2  ls
+    3  cp pod.yaml taint-tol.yaml
+    4  vi taint-tol.yaml 
+    5  kubectl get nodes
+    6  kubectl describe nodes ip-172-20-45-111.ap-south-1.compute.internal | grep "Taint"
+    7  kubectl describe nodes ip-172-20-51-211.ap-south-1.compute.internal | grep "Taint"
+    8  kubectl get pod
+    9  kubectl get pod -o wide
+   10  kubectl create deployment mydep --replicas 7 --image nginx --port 80
+   11  kubectl get pod
+   12  kubectl get pod -o wide
+   13  kubectl taint node ip-172-20-45-111.ap-south-1.compute.internal taint=green:NoExecute
+   14  kubectl get pod -o wide
+   15  kubectl get pod
+   16  kubectl get pod -o wide
+   17  kubectl describe nodes ip-172-20-45-111.ap-south-1.compute.internal | grep "Taint"
+   18  vi taint-tol.yaml 
+   19  kubectl create -f taint-tol.yaml 
+   20  kubectl get pod -o wide
+   21  kubectl describe nodes ip-172-20-45-111.ap-south-1.compute.internal | grep "Taint"
+   22  kubectl get nodes
+   23  kubectl describe ip-172-20-60-238.ap-south-1.compute.internal | grep "Taint"
+   24  kubectl describe nodes ip-172-20-60-238.ap-south-1.compute.internal | grep "Taint"
+   25  cp taint-tol.yaml tain-master.yaml
+   26  vi tain-master.yaml 
+   27  kubectl create -f tain-master.yaml 
+   28  vi tain-master.yaml 
+   29  kubectl create -f tain-master.yaml 
+   30  kubectl get nodes
+   31  kubectl get pod -o wide
+   32  ./gitt.sh taint
+   33  chmod +x gitt.sh 
+   34  ./gitt.sh taint
+   35  history > cmd.txt 
