@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: mypod
+  annotations:
+     describe: test pod created 
+spec:
+  containers:
+  - image: nginx:latest
+    name: con1 
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: taint
+    operator: "Equal"
+    value: green
+    effect: NoExecute
+
+

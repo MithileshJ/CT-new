@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: mypod-tol
+  annotations:
+     describe: test pod created 
+spec:
+  containers:
+  - image: nginx:latest
+    name: con1 
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: node-role.kubernetes.io/master
+    operator: "Exists"
+    effect: NoSchedule
+
