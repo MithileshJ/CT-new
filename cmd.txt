@@ -1,0 +1,32 @@
+ vi pod.yaml
+   81  vi svc.yaml
+   82  vi pod.yaml
+   83  vi man-schedule.yaml
+   84  kubectl get nodes --show-labels
+   85  kubectl get nodes
+   86  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
+   87  kubectl get nodes --show-labels
+   88  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen, memory=16
+   89  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen, memory=best
+   90* kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
+   91  kubectl get nodes --show-labels
+   92  kubectl get nodes --show-labels | grep cpu=
+   93  kubectl get nodes --show-labels | grep cpu=ryzen
+   94  cp pod.yaml node-sel.yaml
+   95  vi node-sel.yaml
+   96  kubectl create -f node-sel.yaml
+   97  vi pod.yaml
+   98  vi node-sel.yaml
+   99  kubectl create -f node-sel.yaml
+  100  kubectl get pod
+  101  kubectl describe pod pod-nodesel
+  102  kubectl get pod
+  103  kubectl get nodes
+  104  kubectl delete -f node-sel.yaml
+  105  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu-
+  106  kubectl create -f node-sel.yaml
+  107  kubectl get pod
+  108  kubectl describe pod pod-nodesel
+  109  kubectl get pod
+  110  kubectl label nodes ip-172-20-45-111.ap-south-1.compute.internal cpu=ryzen
+  111  kubectl get pod
