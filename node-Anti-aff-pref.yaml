@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: node-anti-aff-pref
+  annotations:
+     describe: test pod created 
+spec:
+  containers:
+  - image: nginx:latest
+    name: con1 
+    ports:
+    - containerPort: 80
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: cpu
+            operator: NotIn
+            values:
+            - ryzen
+        
+
