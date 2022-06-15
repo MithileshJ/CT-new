@@ -266,3 +266,9 @@
   266  cd myapp/CT-new/
   267  ls
   268  history > cmd.txt 
+  269  ./gitt.sh "cmd"
+  270  vi replicaset.yaml 
+  271  history > cmd.txt 
+kubectl get replicasets.apps
+
+ kubectl get replicationcontrollers
