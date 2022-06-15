@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     app: myapp
+    env: dev
   name: mypod
   annotations:
      describe: test pod created 
