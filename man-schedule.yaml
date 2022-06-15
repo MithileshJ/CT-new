@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     app: myapp
-  name: mypod
+  name: man-pod
   annotations:
      describe: test pod created 
 spec:
@@ -12,3 +12,4 @@ spec:
     name: con1 
     ports:
     - containerPort: 80
+  nodeName: ip-172-20-10-211.ap-south-1.compute.internal
