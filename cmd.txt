@@ -272,3 +272,4 @@
 kubectl get replicasets.apps
 
  kubectl get replicationcontrollers
+kubectl scale replicaset myrs --replicas 5
