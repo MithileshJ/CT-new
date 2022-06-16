@@ -558,3 +558,299 @@ kubectl scale replicaset myrs --replicas 5
   171  kubectl describe pod mydep-liv-exec-54fd7cb946-2qws5
   172  vi liv-exec.yaml 
   173  history >> cmd.txt 
+    1  vi kops.sh
+    2  vi kops.sh
+    3  rm .kops.sh.swp 
+    4  sh kops.sh 
+    5  #kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    6  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    7  aws configure
+    8  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    9  kops dele cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   10  kops delete cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   11  aws configure
+   12  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   13  aws configure
+   14  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   15  kops delete cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   16  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   17  mkdir myapp
+   18  cd myapp/
+   19  git clone git@github.com:aneeshansaricloud/CT-new.git
+   20  #ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   21  ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   22  cd 
+   23  cd .ssh/
+   24  cat id_ed25519.pub 
+   25  cd -
+   26  cd myapp/
+   27  ls
+   28  cd 
+   29  ls
+   30  cd myapp/
+   31  ls
+   32  #ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   33  git clone git@github.com:aneeshansaricloud/CT-new.git
+   34  ls
+   35  cd CT-new/
+   36  ls
+   37  vi test.yaml 
+   38  ./gitt.sh 
+   39  vi test.yaml 
+   40  ./gitt.sh 
+   41  ./gitt.sh "blabla"
+   42  kubectl get nodes
+   43  cd
+   44  vi .bashrc 
+   45  source .bashrc 
+   46  kubectl get nodes
+   47  ls
+   48  cd myapp/CT-new/
+   49  ls
+   50  vi rc.yaml 
+   51  vi replicaset.yaml 
+   52  cp replicaset.yaml deployment.yaml
+   53  vi deployment.yaml 
+   54  vi rc.yaml 
+   55  vi replicaset.yaml 
+   56  vi deployment.yaml 
+   57  kubectl create -f deployment.yaml 
+   58  kubectl get pod
+   59  kubectl delete -f deployment.yaml 
+   60  kubectl create -f pod.yaml 
+   61  kubectl get pod --show-labels 
+   62  kubectl delete -f pod.yaml 
+   63  vi pod.yaml 
+   64  kubectl create -f pod.yaml 
+   65  kubectl get pod --show-labels 
+   66  vi deployment.yaml 
+   67  kubectl create -f deployment.yaml 
+   68  kubectl get deployments.apps 
+   69  kubectl get pod
+   70  kubectl get deployments.apps --show-labels 
+   71  kubectl get pod --show-labels 
+   72  kubectl get replicasets.apps 
+   73  kubectl get deployments.apps -o wide
+   74  kubectl describe deployments.apps mydep 
+   75  kubectl describe replicasets.apps mydep-646c7fb474 
+   76  kubectl describe pod mydep-646c7fb474-564d7
+   77  kubectl get deployments.apps -o wide
+   78  kubectl get svc
+   79  history 
+   80  kubectl get deployments.apps -o wide
+   81  kubectl set image deployment mydep con1=nginx:latest --record
+   82  kubectl get deployments.apps -o wide
+   83  kubectl get pod 
+   84  kubectl get replicasets.apps 
+   85  kubectl describe replicasets.apps mydep-646c7fb474
+   86  kubectl get replicasets.apps 
+   87  kubectl rollout history deployment mydep 
+   88  kubectl rollout history deployment mydep --revision 1
+   89  kubectl rollout history deployment mydep --revision 2
+   90  kubectl rollout history deployment mydep 
+   91  kubectl rollout undo deployment mydep --to-revision 1
+   92  kubectl rollout history deployment mydep 
+   93  kubectl get deployments.apps -o wide
+   94  kubectl get replicasets.apps 
+   95  kubectl get pod
+   96  vi deployment.yaml 
+   97  kubectl delete -f deployment.yaml 
+   98  vi deployment.yaml 
+   99  kubectl delete -f deployment.yaml 
+  100  kubectl create -f deployment.yaml 
+  101  kubectl set image deployment mydep con1=nginx:latest 
+  102  kubectl rollout history deployment mydep 
+  103  kubectl annotate deployments.apps mydep kubernetes.io/change-cause="updating to nginx v1.2"
+  104  kubectl rollout history deployment mydep 
+  105  vi deployment.yaml 
+  106  kubectl edit deployments.apps mydep 
+  107  kubectl rollout history deployment mydep 
+  108  kubectl get replicasets.apps 
+  109  kubectl get pod
+  110  kubectl get replicasets.apps 
+  111  history >> cmd.txt 
+  112  ./gitt.sh "deployment"
+  113  cd myapp/CT-new/
+  114  ls
+  115  kubectl delete -f deployment.yaml 
+  116  vi deployment.yaml 
+  117  kubectl create -f deployment.yaml 
+  118  kubectl get deployments.apps 
+  119  kubectl ge tpod
+  120  kubectl get pod
+  121  kubectl get rs
+  122  vi deployment.yaml 
+  123  kubectl apply -f deployment.yaml 
+  124  kubectl get deployments.apps 
+  125  kubectl get rs
+  126  kubectl get pod
+  127  vi deployment.yaml 
+  128  kubectl edit deployments.apps mydep 
+  129  vi deployment.yaml 
+  130  kubectl get deployments.apps -o wide
+  131  kubectl get pod -o wide
+  132  kubectl get deployments.apps 
+  133  kubectl scale deployment mydep --replicas 8
+  134  kubectl get deployments.apps 
+  135  kubectl get pod
+  136  kubectl scale deployment mydep --replicas 2
+  137  kubectl get pod
+  138  kubectl autoscale deployment mydep --min 3 --max 10 --cpu-percent 70 --dry-run=clinet -o yaml >> myapp/CT-new/deployment.yaml 
+  139  kubectl autoscale deployment mydep --min 3 --max 10 --cpu-percent 70 --dry-run=client -o yaml >> myapp/CT-new/deployment.yaml 
+  140  cd myapp/CT-new/
+  141  vi deployment.yaml 
+  142  kubectl autoscale deployment mydep --min 3 --max 10 --cpu-percent 70
+  143  kubectl get hpa
+  144  vi deployment.yaml 
+  145  cd myapp/CT-new/
+  146  ls
+  147  vi deployment.yaml 
+  148  kubectl get pod 
+  149  kubectl describe pod mydep-646c7fb474-2bw6z
+  150  vi deployment.yaml 
+  151  kubectl delete -f deployment.yaml 
+  152  kubectl create -f deployment.yaml 
+  153  vi deployment.yaml 
+  154  kubectl get pod
+  155  kubectl describe pod mydep-5769978bd5-7vljz
+  156  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  157  kubectl get pod -n kube-system 
+  158  kubectl get hpa
+  159  kubectl get pod
+  160  kubectl delete -f deployment.yaml 
+  161  cd myapp/CT-new/
+  162  ls
+  163  cd myapp/CT-new/
+  164  vi deployment.yaml 
+  165  cd myapp/CT-new/
+  166  vi k-dep.yaml
+  167  vi k-dep.yaml
+  168  kubectl create -f k-dep.yaml 
+  169  kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+  170  lllllllll
+  171  kubectl get pod
+  172  kubectl get nodes
+  173  kubectl get pod
+  174  kubectl get hpa
+  175  kubectl get pod
+  176  kubectl get hpa
+  177  kubectl get pod
+  178  kubectl get hpa
+  179  kubectl get pod
+  180  kubectl get hpa
+  181  kubectl get pod
+  182  kubectl get hpa
+  183  cd myapp/CT-new/
+  184  vi kops.sh 
+  185  mv .k-dep.yaml.swp k-dep.yaml
+  186  vi k-dep.yaml 
+  187  rm k-dep.yaml 
+  188  vi k-dep.yaml
+  189  kubectl get deployments.apps 
+  190  kubectl get hpa
+  191  ls
+  192  kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+  193  kubectl get pod
+  194  kubectl top pod
+  195  kubectl top nodes
+  196  kubectl get pod -n kube-system 
+  197  kubectl get deployments.apps -n kube-system 
+  198  cd myapp/CT-new/
+  199  ls
+  200  vi deployment.yaml 
+  201  cd myapp/CT-new/
+  202  ls
+  203  cp deployment.yaml liv-exec.yaml
+  204  vi liv-exec.yaml 
+  205  kubectl create -f liv-exec.yaml 
+  206  vi liv-exec.yaml 
+  207  kubectl create -f liv-exec.yaml 
+  208  kubectl get pod
+  209  kubectl describe pod mydep-liv-exec-6bf6d5cb44-cc74t
+  210  kubectl get pod
+  211  vi liv-exec.yaml 
+  212  kubectl get pod
+  213  kubectl exec -it mydep-liv-exec-6bf6d5cb44-cc74t -- bash
+  214  kubectl delete -f liv-exec.yaml 
+  215  vi liv-exec.yaml 
+  216  kubectl create -f liv-exec.yaml 
+  217  kubectl get pod
+  218  kubectl describe pod mydep-liv-exec-778577c567-79wq6
+  219  kubectl get pod
+  220  kubectl describe pod mydep-liv-exec-778577c567-79wq6
+  221  kubectl get pod
+  222  kubectl delete -f liv-exec.yaml 
+  223  cp liv-exec.yaml liv-http.yaml 
+  224  vi liv-http.yaml 
+  225  kubectl create -f liv-http.yaml 
+  226  vi liv-http.yaml 
+  227  kubectl create -f liv-http.yaml 
+  228  vi liv-http.yaml 
+  229  kubectl create -f liv-http.yaml 
+  230  kubectl get pod
+  231  kubectl describe pod mydep-liv-http-58995569d-mqw4m
+  232  kubectl delete -f liv-http.yaml 
+  233  vi liv-http.yaml 
+  234  kubectl create -f liv-http.yaml 
+  235  kubectl get pod
+  236  kubectl describe pod mydep-liv-http-565cb7c998-27nh2
+  237  kops export aneesh-mykube.k8s.local --admin
+  238  history | grep "kops"
+  239  kops export aneesh-mykube.k8s.local --admin --state=s3://aneesh-mykops123
+  240  kops export kubeconfig aneesh-mykube.k8s.local --admin --state=s3://aneesh-mykops123
+  241  kubectl get pod
+  242  kubectl delete -f liv-http.yaml 
+  243  vi liv-http.yaml 
+  244  kubectl get pod
+  245  kubectl create -f liv-http.yaml 
+  246  kubectl get pod
+  247  kubectl describe pod mydep-liv-http-565cb7c998-dc9c6
+  248  kubectl get pod
+  249  kubectl delete -f liv-http.yaml 
+  250  cp liv-http.yaml liv-tcp.yaml
+  251  vi liv-tcp.yaml
+  252  kubectl create -f liv-tcp.yaml 
+  253  kubectl get pod
+  254  vi liv-tcp.yaml 
+  255  vi liv-http.yaml 
+  256  vi liv-exec.yaml 
+  257  kubectl create -f liv-exec.yaml 
+  258  kubectl get pod
+  259  kubectl describe pod mydep-liv-exec-54fd7cb946-2qws5
+  260  vi liv-exec.yaml 
+  261  history >> cmd.txt 
+  262  ./gitt.sh "deploy healthProbe"
+  263  cd myapp/CT-new/
+  264  vi job.yaml 
+  265  kubectl create -f job.yaml 
+  266  kubectl get pod
+  267  kubectl delete -f job.yaml 
+  268  vi job.yaml 
+  269  kubectl create -f job.yaml 
+  270  kubectl get pod
+  271  kubectl delete -f job.yaml 
+  272  vi cron-job.yaml
+  273  kubectl create -f cron-job.yaml 
+  274  kubectl get cronjobs.batch 
+  275  kubectl get pod
+  276  kubectl logs hello-27589575-64jr6
+  277  kubectl get pod
+  278  kubectl delete -f cron-job.yaml 
+  279  cp 
+  280  cp deployment.yaml emp-vol.yaml
+  281  vi emp-vol.yaml 
+  282  kubectl create -f emp-vol.yaml 
+  283  vi emp-vol.yaml 
+  284  kubectl create -f emp-vol.yaml 
+  285  kubectl get pod
+  286  kubectl describe pod mydep-emp-vol-5d8ff48c8f-2l7w8
+  287  kubectl get pod
+  288  kubectl exec -it mydep-emp-vol-5d8ff48c8f-2l7w8 -c con1 -- bash
+  289  kubectl exec -it mydep-emp-vol-5d8ff48c8f-2l7w8 -c con2 -- bash
+  290  kubectl delete pod mydep-emp-vol-5d8ff48c8f-2l7w8
+  291  ./gitt.sh "emptyDir vol"
+  292  vi emp-vol.yaml 
+  293  vi hostpath-vol.yaml
+  294  vi daemonset.yaml 
+  295  vi hostpath-vol.yaml 
+  296  history >> cmd.txt 
