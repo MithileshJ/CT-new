@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep-liv-exec
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+        app: myapp
+   template:
+     metadata:
+        labels:
+          app: myapp
+     spec: 
+       containers:
+       - name: con1
+         image: httpd:latest
+         ports:
+         - containerPort: 80
+         livenessProbe:
+            exec:
+              command:
+              - cat 
+              - /usr/local/apache2/htdocs/index.html
+            initialDelaySeconds: 10
+            periodSeconds: 5
+         readinessProbe:
+            exec:
+              command:
+              - cat
+              - /usr/local/apache2/htdocs/index.html
+            initialDelaySeconds: 10
+            periodSeconds: 5
+
