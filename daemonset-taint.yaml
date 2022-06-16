@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: mydaemon
+spec:
+   selector:
+     matchLabels:
+        app: myapp
+   template:
+     metadata:
+        labels:
+          app: myapp
+     spec: 
+       containers:
+       - name: con1
+         image: httpd:latest
+         ports:
+         - containerPort: 80
+       tolerations:
+       - key: node-role.kubernetes.io/master
+         #         operator: "Exists"
+         effect: NoSchedule
+
