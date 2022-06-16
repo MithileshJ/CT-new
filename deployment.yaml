@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+  annotations:
+    kubernetes.io/change-cause: "deployeing v1.1"
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+        app: myapp
+   template:
+     metadata:
+        labels:
+          app: myapp
+     spec: 
+       containers:
+       - name: con1
+         image: httpd:latest
+         ports:
+         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydep-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30123
+  selector:
+    app: myapp
+  type: NodePort
+

@@ -273,3 +273,115 @@ kubectl get replicasets.apps
 
  kubectl get replicationcontrollers
 kubectl scale replicaset myrs --replicas 5
+    1  vi kops.sh
+    2  vi kops.sh
+    3  rm .kops.sh.swp 
+    4  sh kops.sh 
+    5  #kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    6  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    7  aws configure
+    8  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+    9  kops dele cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   10  kops delete cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   11  aws configure
+   12  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   13  aws configure
+   14  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   15  kops delete cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123  --yes
+   16  kops create cluster --name=aneesh-mykube.k8s.local --state=s3://aneesh-mykops123 --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   17  mkdir myapp
+   18  cd myapp/
+   19  git clone git@github.com:aneeshansaricloud/CT-new.git
+   20  #ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   21  ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   22  cd 
+   23  cd .ssh/
+   24  cat id_ed25519.pub 
+   25  cd -
+   26  cd myapp/
+   27  ls
+   28  cd 
+   29  ls
+   30  cd myapp/
+   31  ls
+   32  #ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   33  git clone git@github.com:aneeshansaricloud/CT-new.git
+   34  ls
+   35  cd CT-new/
+   36  ls
+   37  vi test.yaml 
+   38  ./gitt.sh 
+   39  vi test.yaml 
+   40  ./gitt.sh 
+   41  ./gitt.sh "blabla"
+   42  kubectl get nodes
+   43  cd
+   44  vi .bashrc 
+   45  source .bashrc 
+   46  kubectl get nodes
+   47  ls
+   48  cd myapp/CT-new/
+   49  ls
+   50  vi rc.yaml 
+   51  vi replicaset.yaml 
+   52  cp replicaset.yaml deployment.yaml
+   53  vi deployment.yaml 
+   54  vi rc.yaml 
+   55  vi replicaset.yaml 
+   56  vi deployment.yaml 
+   57  kubectl create -f deployment.yaml 
+   58  kubectl get pod
+   59  kubectl delete -f deployment.yaml 
+   60  kubectl create -f pod.yaml 
+   61  kubectl get pod --show-labels 
+   62  kubectl delete -f pod.yaml 
+   63  vi pod.yaml 
+   64  kubectl create -f pod.yaml 
+   65  kubectl get pod --show-labels 
+   66  vi deployment.yaml 
+   67  kubectl create -f deployment.yaml 
+   68  kubectl get deployments.apps 
+   69* 
+   70  kubectl get pod
+   71  kubectl get deployments.apps --show-labels 
+   72  kubectl get pod --show-labels 
+   73  kubectl get replicasets.apps 
+   74  kubectl get deployments.apps -o wide
+   75  kubectl describe deployments.apps mydep 
+   76  kubectl describe replicasets.apps mydep-646c7fb474 
+   77  kubectl describe pod mydep-646c7fb474-564d7
+   78  kubectl get deployments.apps -o wide
+   79  kubectl get svc
+   80  history 
+   81  kubectl get deployments.apps -o wide
+   82  kubectl set image deployment mydep con1=nginx:latest --record
+   83  kubectl get deployments.apps -o wide
+   84  kubectl get pod 
+   85  kubectl get replicasets.apps 
+   86  kubectl describe replicasets.apps mydep-646c7fb474
+   87  kubectl get replicasets.apps 
+   88  kubectl rollout history deployment mydep 
+   89  kubectl rollout history deployment mydep --revision 1
+   90  kubectl rollout history deployment mydep --revision 2
+   91  kubectl rollout history deployment mydep 
+   92  kubectl rollout undo deployment mydep --to-revision 1
+   93  kubectl rollout history deployment mydep 
+   94  kubectl get deployments.apps -o wide
+   95  kubectl get replicasets.apps 
+   96  kubectl get pod
+   97  vi deployment.yaml 
+   98  kubectl delete -f deployment.yaml 
+   99  vi deployment.yaml 
+  100  kubectl delete -f deployment.yaml 
+  101  kubectl create -f deployment.yaml 
+  102  kubectl set image deployment mydep con1=nginx:latest 
+  103  kubectl rollout history deployment mydep 
+  104  kubectl annotate deployments.apps mydep kubernetes.io/change-cause="updating to nginx v1.2"
+  105  kubectl rollout history deployment mydep 
+  106  vi deployment.yaml 
+  107  kubectl edit deployments.apps mydep 
+  108  kubectl rollout history deployment mydep 
+  109  kubectl get replicasets.apps 
+  110  kubectl get pod
+  111  kubectl get replicasets.apps 
+  112  history >> cmd.txt 
