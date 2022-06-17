@@ -1289,3 +1289,5 @@ kubectl scale replicaset myrs --replicas 5
   433  ./gitt.sh "statefulset"
   434  history >> cmd.txt
 apt update && apt install dnsutils -y
+ nslookup nginx
+ nslookup web-0.nginx.default.svc.cluster.local
