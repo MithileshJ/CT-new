@@ -1359,3 +1359,74 @@ apt update && apt install dnsutils -y
    66  cd ..
    67  ls
    68  history >> cmd.txt 
+    1  kubectl get secrets 
+    2  echo aneesh
+    3  echo aneesh | base64 
+    4  echo YW5lZXNoCg== | base64 --decode 
+    5  cd myapp/CT-new/
+    6  mkdir secret
+    7  cd secret/
+    8  ls
+    9  cp ../wordpress/mysql.yaml .
+   10  vi mysql.yaml 
+   11  kubectl create secret generic mypass --from-literal test123 --dry-run=client -o yaml
+   12  kubectl create secret generic mypass --from-literal password=test123 --dry-run=client -o yaml
+   13  kubectl create secret generic mypass --from-literal password=test123 
+   14  kubectl get secrets 
+   15  kubectl describe secrets mypass 
+   16  kubectl get secrets mypass -o yaml
+   17  echo dGVzdDEyMw== | base64 --decode 
+   18  vi mysql.yaml 
+   19  kubectl create -f mysql.yaml 
+   20  kubectl get pod
+   21  kubectl describe pod mysql-dep-db447c67-29lxk 
+   22  kubectl get pod
+   23  kubectl exec -it mysql-dep-db447c67-29lxk -- bash
+   24  vi mysql.yaml 
+   25  cp mysql.yaml deploy.yaml
+   26  vi deploy.yaml 
+   27  vi pass.txt
+   28  kubectl create secret generic myfile --from-file pass.txt 
+   29  kubectl get secrets 
+   30  kubectl describe secrets myfile 
+   31  kubectl get secrets myfile -o yaml
+   32  vi deploy.yaml 
+   33  kubectl get pod
+   34  kubectl delete -f .
+   35  kubectl get pod
+   36  kubectl create -f deploy.yaml 
+   37  vi deploy.yaml 
+   38  kubectl create -f deploy.yaml 
+   39  kubectl get pod
+   40  kubectl describe pod mysql-dep-76f5f59bfb-cs7h7
+   41  kubectl get pod
+   42  kubectl exec -it mysql-dep-76f5f59bfb-cs7h7 -- bash
+   43  kubectl get configmaps 
+   44  kubectl describe configmaps myenv
+   45  kubectl describe configmaps myfile
+   46  kubectl get configmaps 
+   47  kubectl describe configmaps myindex
+   48  kubectl get configmaps myindex -o yaml
+   49  echo aGVsbG8sIHRoaXMgaXMgZmlsZS4uCg==  | base64 --decode 
+   50  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
+   51  kubectl get pod -n kubernetes-dashboard 
+   52  kubectl get svc -n kubernetes-dashboard 
+   53  kubectl get svc 
+   54  kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard 
+   55  kubectl get svc 
+   56  kubectl get svc -n kubernetes-dashboard 
+   57  kubectl create serviceaccount dashboard-admin-sa
+   58  kubectl get secrets 
+   59  kubectl describe secrets dashboard-admin-sa-token-jzvcn
+   60  kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+   61  kubectl get clusterrolebindings.rbac.authorization.k8s.io 
+   62  kubectl get clusterrole
+   63* kubectl describe secrets dashboard-admin-sa-token-jzvc
+   64  kubectl get svc
+   65  kubectl get svc -n kubernetes-dashboard 
+   66  cd ..
+   67  ls
+   68  history >> cmd.txt 
+   69  ./gitt.sh "dashboard secret"
+   70  vi pod.yaml 
+   71  history >> cmd.txt 
