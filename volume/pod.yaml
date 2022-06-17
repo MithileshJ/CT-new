@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: mypod
+  annotations:
+     describe: test pod created 
+spec:
+  containers:
+  - image: nginx:latest
+    name: con1 
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: myvol
+      mountPath: /data
+  volumes:
+  - name: myvol
+    persistentVolumeClaim:
+        claimName: myclaim

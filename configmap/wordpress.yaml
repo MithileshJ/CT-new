@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+        app: wordpress
+   template:
+     metadata:
+        labels:
+          app: wordpress
+     spec: 
+       containers:
+       - name: con1
+         image: wordpress:latest
+         ports:
+         - containerPort: 80
+         envFrom:
+         - configMapRef: 
+              name: myenv 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydep-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30123
+  selector:
+    app: wordpress
+  type: NodePort
+
