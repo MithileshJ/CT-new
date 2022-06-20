@@ -1430,3 +1430,355 @@ apt update && apt install dnsutils -y
    69  ./gitt.sh "dashboard secret"
    70  vi pod.yaml 
    71  history >> cmd.txt 
+    1  mkdir myapp
+    2  cd myapp/
+    3  git@github.com:aneeshansaricloud/CT-new.git
+    4  git clone git@github.com:aneeshansaricloud/CT-new.git
+    5  ssh-keygen 
+    6  cd .ss
+    7  cd
+    8  cd .ssh/
+    9  ls
+   10  cat id_rsa.pub 
+   11  rm id_*
+   12  ls
+   13  lscpu 
+   14  cd
+   15  ssh-keygen -t ed25519 -C "aneeshansaricloud@gmail.com"
+   16  eval "$(ssh-agent -s)"
+   17  cd .ssh/
+   18  ls
+   19  cat id_ed25519.pub 
+   20  git clone git@github.com:aneeshansaricloud/CT-new.git
+   21  ls
+   22  rm -rf CT-new/
+   23  ls
+   24  cd
+   25  cd myapp/
+   26  git clone git@github.com:aneeshansaricloud/CT-new.git
+   27  cd CT-new/
+   28  ls
+   29  vi test.yaml 
+   30  ./gitt.sh "new"
+   31  ls
+   32  sh kops.sh 
+   33  cat cmd.txt | grep "kops"
+   34  kops create cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   35  aws configure
+   36  kops create cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   37  kops delete cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops 
+   38  kops delete cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops --yes
+   39  kops create cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops --zones=ap-south-1a --node-count=2 --node-size=t2.medium --master-size=t2.medium --yes
+   40  aws s3 ls
+   41  ll
+   42  cd
+   43  vi .bashrc 
+   44  source .bashrc 
+   45  kops validate cluster --name aneesh-mykube1.k8s.local --state=s3://aneesh-mykops 
+   46  kubectl get nodes
+   47  cd myapp/CT-new/
+   48  ls
+   49  vi ini
+   50  ls
+   51  ls 
+   52  ls -a
+   53  cd
+   54  vi .bashrc 
+   55  l
+   56  ls
+   57  cd myapp/
+   58  l
+   59  cd CT-new/
+   60  ls
+   61  l
+   62  cp deployment.yaml init-container.yaml
+   63  vi init-container.yaml 
+   64  cp emp-vol.yaml init-container.yaml
+   65  vi init-container.yaml 
+   66  vi wordpress/wordpress.yaml 
+   67  vi init-container.yaml 
+   68  kubectl create -f init-container.yaml 
+   69  kubectl get pod
+   70  kubectl delete -f init-container.yaml 
+   71  vi init-container.yaml 
+   72  kubectl create -f init-container.yaml 
+   73  vi init-container.yaml 
+   74  kubectl delete -f init-container.yaml 
+   75  kubectl create -f init-container.yaml 
+   76  kubectl get pod
+   77  vi init-container.yaml 
+   78  kubectl delete -f init-container.yaml 
+   79  kubectl create -f init-container.yaml 
+   80  kubectl get pod
+   81  mkdir volume
+   82  cd volume/
+   83  vi pvc.yaml
+   84  kubectl get pvc
+   85  kubectl get sc
+   86  vi pvc.yaml
+   87  kubectl create -f pvc.yaml 
+   88  kubectl get pvc
+   89  kubectl describe pvc myclaim
+   90  cp ../pod.yaml .
+   91  vi pod.yaml 
+   92  kubectl get pvc
+   93  vi pod.yaml 
+   94  kubectl create -f pod.yaml 
+   95  kubectl get pod
+   96  kubectl describe pod mypod
+   97  kubectl get pod
+   98  kubectl get pvc
+   99  kubectl get sc
+  100  cd ..
+  101  mkdir configmap
+  102  cd configmap/
+  103  cp ../wordpress/* .
+  104  ls
+  105  cp ../init-container.yaml .
+  106  ls
+  107  mv init-container.yaml deploy.yaml
+  108  vi deploy.yaml 
+  109  vi wordpress.yaml 
+  110  #kubectl create configmap myenv --from-literal 
+  111  vi deploy.yaml 
+  112  vi wordpress.yaml 
+  113  kubectl create configmap myenv --from-literal WORDPRESS_DB_HOST=mysql-svc --from-literal WORDPRESS_DB_USER=root
+  114  kubectl delete configmaps myenv 
+  115  kubectl create configmap myenv --from-literal WORDPRESS_DB_HOST=mysql-svc --from-literal WORDPRESS_DB_USER=root --from-literal WORDPRESS_DB_PASSWORD=test123 --from-literal WORDPRESS_DB_NAME=testdb --from-literal WORDPRESS_TABLE_PREFIX=wp_
+  116  kubectl delete configmaps myenv 
+  117  kubectl create configmap myenv --from-literal WORDPRESS_DB_HOST=mysql-svc --from-literal WORDPRESS_DB_USER=root --from-literal WORDPRESS_DB_PASSWORD=test123 --from-literal WORDPRESS_DB_NAME=testdb --from-literal WORDPRESS_TABLE_PREFIX=wp_  --dry-run=client -o yaml
+  118  kubectl create configmap myenv --from-literal WORDPRESS_DB_HOST=mysql-svc --from-literal WORDPRESS_DB_USER=root --from-literal WORDPRESS_DB_PASSWORD=test123 --from-literal WORDPRESS_DB_NAME=testdb --from-literal WORDPRESS_TABLE_PREFIX=wp_  --dry-run=client -o yaml > config.yaml
+  119  vi config.yaml 
+  120  kubectl create -f config.yaml 
+  121  kubectl get configmaps 
+  122  kubectl describe configmaps myenv 
+  123  kubectl edit configmaps myenv 
+  124  kubectl get configmaps 
+  125  vi wordpress.yaml 
+  126  kubectl create -f wordpress.yaml 
+  127  kubectl get svc
+  128  kubectl delete -f deploy.yaml 
+  129  kubectl create -f wordpress.yaml 
+  130  kubectl get pods
+  131  kubectl get svc
+  132  kubectl describe pod wordpress-68f8558bd5-dttwn
+  133  kubectl get pod
+  134  kubectl exec -it wordpress-68f8558bd5-dttwn -- bash
+  135  kubectl get pod
+  136  ls
+  137  vi deploy.yaml 
+  138  kubectl delete -f wordpress.yaml 
+  139  kubectl create -f deploy.yaml 
+  140  vi deploy.yaml 
+  141  vi index.html
+  142  ls
+  143  kubectl create configmap myindex --from-file index.html --dry-run=client -o yaml
+  144  kubectl create configmap myindex --from-file index.html --dry-run=client -o yaml > myindex.yaml
+  145  vi myindex.yaml 
+  146  kubectl create configmap myindex --from-file index.html 
+  147  kubectl get configmaps 
+  148  kubectl get pod
+  149  kubectl delete -f deploy.yaml 
+  150  vi deploy.yaml 
+  151  kubectl get configmaps 
+  152  vi deploy.yaml 
+  153  kubectl create -f deploy.yaml 
+  154  vi deploy.yaml 
+  155  kubectl create -f deploy.yaml 
+  156  kubectl get pod
+  157  kubectl get svc
+  158  kubectl describe pod mydep-init-con-7d95d68c76-twvb5
+  159  cd ..
+  160  ./gitt.sh "configmap"
+  161  kubectl get secrets 
+  162  echo aneesh
+  163  echo aneesh | base64 
+  164  echo YW5lZXNoCg== | base64 --decode 
+  165  cd myapp/CT-new/
+  166  mkdir secret
+  167  cd secret/
+  168  ls
+  169  cp ../wordpress/mysql.yaml .
+  170  vi mysql.yaml 
+  171  kubectl create secret generic mypass --from-literal test123 --dry-run=client -o yaml
+  172  kubectl create secret generic mypass --from-literal password=test123 --dry-run=client -o yaml
+  173  kubectl create secret generic mypass --from-literal password=test123 
+  174  kubectl get secrets 
+  175  kubectl describe secrets mypass 
+  176  kubectl get secrets mypass -o yaml
+  177  echo dGVzdDEyMw== | base64 --decode 
+  178  vi mysql.yaml 
+  179  kubectl create -f mysql.yaml 
+  180  kubectl get pod
+  181  kubectl describe pod mysql-dep-db447c67-29lxk 
+  182  kubectl get pod
+  183  kubectl exec -it mysql-dep-db447c67-29lxk -- bash
+  184  vi mysql.yaml 
+  185  cp mysql.yaml deploy.yaml
+  186  vi deploy.yaml 
+  187  vi pass.txt
+  188  kubectl create secret generic myfile --from-file pass.txt 
+  189  kubectl get secrets 
+  190  kubectl describe secrets myfile 
+  191  kubectl get secrets myfile -o yaml
+  192  vi deploy.yaml 
+  193  kubectl get pod
+  194  kubectl delete -f .
+  195  kubectl get pod
+  196  kubectl create -f deploy.yaml 
+  197  vi deploy.yaml 
+  198  kubectl create -f deploy.yaml 
+  199  kubectl get pod
+  200  kubectl describe pod mysql-dep-76f5f59bfb-cs7h7
+  201  kubectl get pod
+  202  kubectl exec -it mysql-dep-76f5f59bfb-cs7h7 -- bash
+  203  kubectl get configmaps 
+  204  kubectl describe configmaps myenv
+  205  kubectl describe configmaps myfile
+  206  kubectl get configmaps 
+  207  kubectl describe configmaps myindex
+  208  kubectl get configmaps myindex -o yaml
+  209  echo aGVsbG8sIHRoaXMgaXMgZmlsZS4uCg==  | base64 --decode 
+  210  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
+  211  kubectl get pod -n kubernetes-dashboard 
+  212  kubectl get svc -n kubernetes-dashboard 
+  213  kubectl get svc 
+  214  kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard 
+  215  kubectl get svc 
+  216  kubectl get svc -n kubernetes-dashboard 
+  217  kubectl create serviceaccount dashboard-admin-sa
+  218  kubectl get secrets 
+  219  kubectl describe secrets dashboard-admin-sa-token-jzvcn
+  220  kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+  221  kubectl get clusterrolebindings.rbac.authorization.k8s.io 
+  222  kubectl get clusterrole
+  223  kubectl describe secrets dashboard-admin-sa-token-jzvc
+  224  kubectl get svc
+  225  kubectl get svc -n kubernetes-dashboard 
+  226  cd ..
+  227  ls
+  228  history >> cmd.txt 
+  229  ./gitt.sh "dashboard secret"
+  230  vi pod.yaml 
+  231  history >> cmd.txt 
+  232  ./gitt.sh "test"
+  233  history | grep "kops"
+  234  cat cmd.txt | grep "kops"
+  235  kops delete cluster --name=aneesh-mykube1.k8s.local --state=s3://aneesh-mykops  --yes
+  236  history | grep "kops create"
+  237  history | grep "kops validate"
+  238  kops validate cluster --name aneesh-mykube1.k8s.local --state=s3://aneesh-mykops
+  239  kubectl get pods
+  240  kubectl get nodes
+  241  cd myapp/
+  242  cd CT-new/
+  243  ls
+  244  cd
+  245  vi .kube/config 
+  246  kubectl get ns
+  247  kubectl get pod -n kube-system 
+  248  kubectl get pod -n kube-public 
+  249  kubectl get ns
+  250  kubectl create namespace devops 
+  251  kubectl get ns
+  252  kubectl delete namespaces devops 
+  253  kubectl get ns
+  254  cd myapp/CT-new/
+  255  kubectl get ns
+  256  kubectl create namespace devops --dry-run=client -o yaml
+  257  kubectl create namespace devops --dry-run=client -o yaml >> namespace.yaml
+  258  vi namespace.yaml 
+  259  kubectl create -f namespace.yaml 
+  260  kubectl get ns
+  261  mkdir RBAC
+  262  mv namespace.yaml RBAC/
+  263  cd RBAC/
+  264  ls
+  265  cp ../pod.yaml .
+  266  ls
+  267  vi pod.yaml 
+  268  kubectl create -f pod.yaml 
+  269  kubectl get pod
+  270  kubectl get pod -n devops
+  271  kubectl delete -f pod.yaml 
+  272  vi pod.yaml 
+  273  kubectl create -f pod.yaml -n devops 
+  274  kubectl get pod -n devops
+  275  kubectl config set-context $(kubectl config current-context) --namespace devops
+  276  kubectl get pod
+  277  kubectl run test --image nginx:latest --port 80
+  278  kubectl get pod
+  279  cd
+  280  vi .kube/config 
+  281  kubectl config set-context $(kubectl config current-context) --namespace default
+  282  kubectl get pod
+  283  vi .kube/config 
+  284  kubectl get ns
+  285  vi .kube/config 
+  286  kubectl config set-context $(kubectl config current-context) --namespace devops
+  287  vi .kube/config 
+  288  kubectl get ns
+  289  kubectl describe namespaces devops 
+  290  cd myapp/CT-new/RBAC/
+  291  vi pod.yaml 
+  292  kubectl create -f pod.yaml 
+  293  kubectl delete -f pod.yaml 
+  294  kubectl get pod
+  295  kubectl delete pod test  
+  296  kubectl get pod
+  297  kubectl describe namespaces devops 
+  298  kubectl get pod
+  299  kubectl create -f pod.yaml 
+  300  kubectl get pod
+  301  kubectl describe pod mypod 
+  302  vi ../deployment.yaml 
+  303  cp ../deployment.yaml .
+  304  vi deployment.yaml 
+  305  kubectl create -f deployment.yaml 
+  306  kubectl get pod
+  307  kubectl describe pod mydep-5769978bd5-ctns6\
+  308  vi pod.yaml 
+  309  kubectl delete -f .
+  310  vi limit-range.yaml
+  311  kubectl create -f limit-range.yaml
+  312  kubectl get ns
+  313  kubectl create -f namespace.yaml 
+  314  kubectl create -f limit-range.yaml
+  315  kubectl get ns
+  316  kubectl get pos
+  317  kubectl get pod
+  318  kubectl config set-context $(kubectl config current-context) --namespace default
+  319  kubectl get pod
+  320  kubectl get ns
+  321  kubectl describe namespaces devops 
+  322  vi pod.yaml 
+  323  kubectl create -f pod.yaml 
+  324  kubectl describe pod mypod -n devops
+  325  vi pod.yaml 
+  326  kubectl delete -f pod.yaml 
+  327  vi pod.yaml 
+  328* kubectl create -f pod.yaml  
+  329  kubectl get pod -n devops 
+  330  kubectl describe pod mypod  -n devops 
+  331  vi pod.yaml 
+  332  vi deployment.yaml 
+  333  kubectl create -f deployment.yaml 
+  334  kubectl delete -f deployment.yaml 4
+  335  kubectl delete -f deployment.yaml
+  336  kubectl create -f deployment.yaml  -n devops 
+  337  kubectl get pod -n devops 
+  338  kubectl describe pod mydep-5769978bd5-fpzzz -n devops 
+  339  cd ..
+  340  ./gitt.sh "limit-range namespace"
+  341  cd 
+  342  cd .ssh/
+  343  ls
+  344  cd -
+  345  cd myapp/CT-new/RBAC/
+  346  mkdir cert
+  347  cd cert/
+  348  aws s3 cp s3://$BUCKET/$CLUSTER/pki/private/ca/$KEY ca.key
+  349  aws s3 cp s3://aneesh-mykops/aneesh-mykube1.k8s.local/pki/private/ca/$KEY ca.key
+  350  echo $KEY
+  351  cd ../..
+  352  history >> cmd.txt 
