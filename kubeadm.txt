@@ -1,0 +1,94 @@
+
+ # Create 3 EC2 instances with t3.medium from AWS Console
+
+ # During Security Group Configuration, ensure to create a new security group (e.g. kubeadm-sg) with below protocols and ports open for Inbound traffic
+
+ Protocol         Port          Purpose
+ TCP              6443          kube-apiserver
+ TCP              2379-2380     etcd client/server-api
+ TCP              6782-6784     weavenet CNI plugin
+ TCP              10250-10255   kubelet communication
+ TCP              32000-32767   for NodePort
+ UDP              6782-6784     weavenet CNI plugin
+
+
+#Login to first EC2
+
+# Set hostname to master
+sudo hostnamectl set-hostname master
+
+#exit and login  back to reflect new hostname
+
+# Task1 -> Download installation script and install kubeadm on Master (elevate privileges to root before running installation sh script)
+
+wget files.cloudthat.training/devops/kubernetes-ckad/kubeadm-script-v1.20.sh
+
+sudo su 
+bash kubeadm-script-v1.20.sh
+
+
+# Task 2 -> Login to 2 other EC2 instances in a seperate window
+
+
+# Set hostname to worker1 and worker2 respectively
+
+sudo hostnamectl set-hostname worker1 (on 2nd EC2)
+
+sudo hostnamectl set-hostname worker2 (on 3rd EC2)
+
+# Task 3- Download installation script and install kubeadm on worker1  and worker2 EC2 instances
+
+
+wget files.cloudthat.training/devops/kubernetes-ckad/kubeadm-script-v1.20.sh
+sudo su 
+bash kubeadm-script-v1.20.sh
+
+
+# Task 4 -> Initialize the cluster , run below command only on the EC2 designated as master 
+
+   kubeadm init
+
+
+
+# Task 5 -> Copy the join command reflected in the output of kubeadm init on master
+
+
+e.g. 
+kubeadm join 172.31.22.40:6443 --token u2jext.pngposkkvxajv5s4 \
+    --discovery-token-ca-cert-hash sha256:b2ead137ed68c000c3a37dd91286b01603476defbde1126da0950e5e773d013
+
+
+# Task 6 -> Run the kubeadm join output coomand with token from master, on the 2 worker nodes
+
+
+kubeadm join <token output> on worker1
+kubeadm join <token output> on worker2
+
+# Task 7 -> Run below set of commands (only on Master) to configure Kubectl 
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# Task 8 - Run the "kubectl get nodes", hyou will notice the cluster is there, with 3 nodes (1 master and 2 worker) but all 3 are in Not Ready state
+
+$kubectl get nodes
+NAME      STATUS     ROLES                  AGE     VERSION
+master    NotReady   control-plane,master   13m     v1.20.0
+worker1   NotReady   <none>                 2m22s   v1.20.0
+worker2   NotReady   <none>                 2m4s    v1.20.0
+
+# Task 9 -> Run the CNI plugin installation script for WeaveNet, which enables communication between master and worker nodes in the cluster
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+ 
+# Task 10 -> Run the "kubectl get nodes" after 10-15 seconds, you will notice that the cluster is in ready state now , for all 3 nodes
+
+
+$kubectl get nodes
+NAME      STATUS   ROLES                  AGE     VERSION
+master    Ready    control-plane,master   14m     v1.20.0
+worker1   Ready    <none>                 3m34s   v1.20.0
+worker2   Ready    <none>                 3m16s   v1.20.0
+

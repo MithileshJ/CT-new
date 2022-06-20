@@ -3,10 +3,11 @@ kind: Pod
 metadata:
   labels:
     app: myapp
-  name: mypod
+  name: mypod-sa
   annotations:
      describe: test pod created 
 spec:
+  serviceAccountName: demo-sa
   containers:
   - image: nginx:latest
     name: con1 
