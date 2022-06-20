@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+  annotations:
+    kubernetes.io/change-cause: "deployeing v1.1"
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+        app: myapp
+   template:
+     metadata:
+        labels:
+          app: myapp
+     spec: 
+       containers:
+       - name: con1
+         image: httpd:latest
+         ports:
+         - containerPort: 80
+         resources:
+            requests:
+               cpu: "200m"
+               memory: "256Mi"
+            limits:
+              cpu: "1000m"
+              memory: "512Mi"
